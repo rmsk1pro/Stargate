@@ -578,6 +578,7 @@ public class Stargate extends JavaPlugin {
 				}
 				if (!Stargate.canAccessPortal(player, portal, deny)) {
 					Stargate.sendMessage((CommandSender) player, Stargate.getString("denyMsg"));
+					player.playSound(player.getLocation(), Sound.VILLAGER_NO, 1, 1);
 					portal.close(false);
 					return;
 				}
@@ -586,6 +587,7 @@ public class Stargate extends JavaPlugin {
 					final String target = portal.getGate().getToOwner() ? portal.getOwner() : null;
 					if (!Stargate.chargePlayer(player, target, cost)) {
 						Stargate.sendMessage((CommandSender) player, Stargate.getString("inFunds"));
+						player.playSound(player.getLocation(), Sound.VILLAGER_NO, 1, 1);
 						portal.close(false);
 						return;
 					}
@@ -604,6 +606,8 @@ public class Stargate extends JavaPlugin {
 					}
 				}
 				Stargate.sendMessage((CommandSender) player, Stargate.getString("teleportMsg"), false);
+				player.playEffect(player.getLocation(),Effect.CLOUD, 10);
+				player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 2.0f, 6.0f);
 				dest.teleport(vehicle);
 				portal.close(false);
 			} else {
@@ -633,6 +637,7 @@ public class Stargate extends JavaPlugin {
 				return;
 			}
 			portal.teleport(player, portal, null);
+			player.playSound(player.getLocation(), Sound.VILLAGER_NO, 1, 1);
 		}
 
 		@EventHandler
@@ -681,6 +686,7 @@ public class Stargate extends JavaPlugin {
 			if (!portal.isOpenFor(player)) {
 				Stargate.sendMessage((CommandSender) player, Stargate.getString("denyMsg"));
 				portal.teleport(player, portal, event);
+				player.playSound(player.getLocation(), Sound.VILLAGER_NO, 1, 1);
 				return;
 			}
 			final Portal destination = portal.getDestination(player);
@@ -703,6 +709,7 @@ public class Stargate extends JavaPlugin {
 			if (!Stargate.canAccessPortal(player, portal, deny)) {
 				Stargate.sendMessage((CommandSender) player, Stargate.getString("denyMsg"));
 				portal.teleport(player, portal, event);
+				player.playSound(player.getLocation(), Sound.VILLAGER_NO, 1, 1);
 				portal.close(false);
 				return;
 			}
@@ -711,6 +718,7 @@ public class Stargate extends JavaPlugin {
 				final String target = portal.getGate().getToOwner() ? portal.getOwner() : null;
 				if (!Stargate.chargePlayer(player, target, cost)) {
 					Stargate.sendMessage((CommandSender) player, "Insufficient Funds");
+					player.playSound(player.getLocation(), Sound.VILLAGER_NO, 1, 1);
 					portal.close(false);
 					return;
 				}
@@ -731,11 +739,16 @@ public class Stargate extends JavaPlugin {
 			Stargate.sendMessage((CommandSender) player, Stargate.getString("teleportMsg"), false);
 			if (!portal.isBungee()) {
 				destination.teleport(player, portal, event);
+				player.playEffect(player.getLocation(),Effect.CLOUD, 10);
+				
+				player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 2.0f, 6.0f);				
+				//player.playSound(player.getLocation(), Sound.WITHER_SPAWN, 2.0f, 6.0f);
 				portal.close(false);
 				return;
 			}
 			if (!Stargate.enableBungee) {
 				player.sendMessage(Stargate.getString("bungeeDisabled"));
+				player.playSound(player.getLocation(), Sound.VILLAGER_NO, 1, 1);
 				portal.close(false);
 				return;
 			}
