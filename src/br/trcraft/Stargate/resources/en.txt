@@ -1,0 +1,32 @@
+prefix=[TrCraft] 
+teleportMsg=Teleportado
+destroyMsg=Portal Quebrado
+invalidMsg=Sem Destino
+blockMsg=Destino Bloqueado
+destEmpty=Lista destino vazio
+denyMsg=Acesso negado
+
+ecoDeduct=Deducted %cost%
+ecoRefund=Refunded %cost%
+ecoObtain=Obtained %cost% de Stargate %portal%
+ecoInFunds=Fundos insuficientes
+
+createMsg=Portal Criado
+createNetDeny=Você nao tem acesso a essa rede
+createGateDeny=Você nao tem acesso a esse Formato do Portal
+createPersonal=Criando portal na rede pessoal
+createNameLength=Nome muito curto ou muito longo.
+createExists=Um portal com esse nome já existe
+createFull=Essa rede está cheia
+createWorldDeny=Você nao tem acesso a esse mundo
+createConflict=Conflitos de portal com portal existente
+
+signRightClick=Right click
+signToUse=to use gate
+signRandom=Random
+signDisconnected=Disconnected
+
+bungeeDisabled=Apoio BungeeCord e desativado.
+bungeeDeny=Você nao tem permissao para criar BungeeCord portal.
+bungeeEmpty=Portal BungeeCord requerem tanto um destino e uma rede.
+bungeeSign=Teleportado para
