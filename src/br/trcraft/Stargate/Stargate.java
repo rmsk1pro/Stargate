@@ -607,7 +607,7 @@ public class Stargate extends JavaPlugin {
 				}
 				Stargate.sendMessage((CommandSender) player, Stargate.getString("teleportMsg"), false);
 				player.playEffect(player.getLocation(),Effect.CLOUD, 10);
-				player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 2.0f, 6.0f);
+				player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 0.5F, 0.5F);
 				dest.teleport(vehicle);
 				portal.close(false);
 			} else {
@@ -741,7 +741,7 @@ public class Stargate extends JavaPlugin {
 				destination.teleport(player, portal, event);
 				player.playEffect(player.getLocation(),Effect.CLOUD, 10);
 				
-				player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 2.0f, 6.0f);				
+				player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 0.5F, 0.5F);			
 				//player.playSound(player.getLocation(), Sound.WITHER_SPAWN, 2.0f, 6.0f);
 				portal.close(false);
 				return;
